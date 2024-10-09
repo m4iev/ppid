@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -28,6 +28,6 @@ app.get("*", function (req, res) {
   res.status(404).render('404.ejs');
 });
 
-app.listen(port, () => {
-  console.log(`Server berjalan di port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server berjalan di port ${PORT}`);
 });
